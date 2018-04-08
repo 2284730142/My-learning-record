@@ -1,0 +1,1 @@
+var p = require("./es6test1.js");

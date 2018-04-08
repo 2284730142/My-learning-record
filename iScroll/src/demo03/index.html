@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>默认标准配置（bounce）</title>
+    <script src="../../source/lib/iscroll.js"></script>
+    <script src="../../source/js/util.js"></script>
+    <style>
+        body {
+            /* 在目前的浏览器上这个属性防止整个浏览器反弹 */
+            overflow: hidden;
+        }
+
+        #wrapper {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+
+            /* 阻止windows上面的本地触摸事件 */
+            -ms-touch-action: none;
+
+            /* 当你触摸并按住触摸目标时候，禁止或显示系统默认菜单 */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            /* 检索或设置移动端页面中对象文本的大小调整。该属性只在移动设备上生效；如果你的页面没有定义meta viewport，此属性定义将无效； */
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+
+        #scroller {
+            position: absolute;
+
+            /* 设置或检索对象的轻按时高亮。当用户轻按一个链接或者JavaScript可点击元素时给元素覆盖一个高亮色如果想取消这个高亮，将值设置为全透明即可，比如transparent */
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+            /* 把scroller放进合成层的顶部位置Z轴上，相当于面对用户的位置 */
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="scroller">
+        <p>
+            <strong>
+                这个例子展示了在较小的页面配置中的CSS/HTML/JS，你需要滚动这个界面来查看详细的信息。
+            </strong>
+        </p>
+
+        <p>
+            撒打开两个就开始了国内垃圾那个卡剪短发那个施蒂利克跟你讲屎壳郎快捷手机拿过来开始的烦恼空间是否能够看见你
+            爱神的箭看见好多；拉斯的目光看了没过来看‘；是否，； 抗过敏发给你罗看了会计师的那份就是当你看见三卡阿斯蒂芬
+            阿斯大林格勒看上哪个速度快老公那口感粉丝多了就赶快来刚开始都留给你轮毂色ring送给你手机党内法规我媕娿如噶近年来云
+            桑经理就你个垃圾呢十几个牛瓦拉内看见啊额金凤金卡尴尬了南非进口无功能更加安静温暖感觉按空格键安康杯烦恼借款收到您付款吧
+        </p>
+
+        <p>
+            撒打开两个就开始了国内垃圾那个卡剪短发那个施蒂利克跟你讲屎壳郎快捷手机拿过来开始的烦恼空间是否能够看见你
+            爱神的箭看见好多；拉斯的目光看了没过来看‘；是否，； 抗过敏发给你罗看了会计师的那份就是当你看见三卡阿斯蒂芬
+            阿斯大林格勒看上哪个速度快老公那口感粉丝多了就赶快来刚开始都留给你轮毂色ring送给你手机党内法规我媕娿如噶近年来云
+            桑经理就你个垃圾呢十几个牛瓦拉内看见啊额金凤金卡尴尬了南非进口无功能更加安静温暖感觉按空格键安康杯烦恼借款收到您付款吧
+        </p>
+
+        <p>
+            撒打开两个就开始了国内垃圾那个卡剪短发那个施蒂利克跟你讲屎壳郎快捷手机拿过来开始的烦恼空间是否能够看见你
+            爱神的箭看见好多；拉斯的目光看了没过来看‘；是否，； 抗过敏发给你罗看了会计师的那份就是当你看见三卡阿斯蒂芬
+            阿斯大林格勒看上哪个速度快老公那口感粉丝多了就赶快来刚开始都留给你轮毂色ring送给你手机党内法规我媕娿如噶近年来云
+            桑经理就你个垃圾呢十几个牛瓦拉内看见啊额金凤金卡尴尬了南非进口无功能更加安静温暖感觉按空格键安康杯烦恼借款收到您付款吧
+        </p>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        var myScroll = new IScroll('#wrapper');
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, isPassive() ? {
+            capture: false,
+            passive: false
+        } : false);
+        console.dir(myScroll.options);
+    }
+</script>
+</body>
+</html>

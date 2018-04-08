@@ -1,0 +1,18 @@
+官方说明（这一篇以及html仅仅是有关于入门方面的信息）
+
+一、入门：
+
+IScroll是一个类，每个需要使用滚动功能的区域均要进行初始化。每个页面上的iScroll实例数目在设备的CPU和内存能承受的范围内是没有限制的。
+尽可能保持DOM结构的简洁。iScroll使用硬件合成层但是有一个限制硬件可以处理的元素。
+最佳的HTML结构如本demo中的index.html中的标签，iScroll作用于滚动区域的外层。在本例子中，UL元素能进行滚动。只有容器元素的第一个子元素能进行滚动，其他子元素完全被忽略。
+
+二、初始化：
+
+当DOM准备完成后iScroll需要被初始化。最保险的方式是在window的onload事件中启动它。在DOMContentLoaded事件中或者inline initialization中做也可以，需要记住的是脚本需要知道滚动区域的高度和宽度。如果你有一些图片在滚动区域导致不能立马获取区域的高度和宽度，iScroll的滚动尺寸有可能会错误。
+为滚动起容器增加position:relative或者absolute样式。这将解决大多数滚动器容器大小计算不正确的问题。
+
+三、配置：
+
+在iScroll初始化阶段可以通过构造函数的第二个参数配置它。
+在初始化后你可以通过options对象访问标准化值。
+所谓的标准化意味着如果你设置useTransform:true，但是浏览器并不支持CSS transforms，那么useTransform属性值将为false。

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>入门示例（初始化）</title>
+    <script src="../../source/lib/iscroll.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <ul>
+        <li>第一条</li>
+        <li>第二条</li>
+        <li>第三条</li>
+        <li>第四条</li>
+        <li>第五条</li>
+    </ul>
+</div>
+<script>
+    window.onload = function () {
+        // 最基本的脚本初始化的方式如下：传入的参数
+        // 1.可以是滚动容器元素的DOM选择器字符串id选择器
+        var myScroll01 = new IScroll('#wrapper', {
+            mouseWheel: true,
+            scrollbars: true
+        });
+        // 2.要么直接传递元素
+        var wrapper = document.getElementById('wrapper');
+        var myScroll02 = new IScroll(wrapper);
+        // 3.滚动容器元素的DOM选择器字符串class选择器，
+        //   但是iScroll使用的是querySelector 而不是 querySelectorAll，所以iScroll只会作用到选择器选中元素的第一个。
+        var myScroll03 = new IScroll('.wrapper');
+
+        console.dir(myScroll01.options);
+        /*
+        * 以上为最基本的使用框架
+        * */
+    }
+</script>
+</body>
+</html>
