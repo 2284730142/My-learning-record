@@ -24,7 +24,7 @@
     ·JavaScript基础：Js基础教程、js内置对象常用方法、常见DOM树操作大全、ECMAscript、DOM、BOM、定时器和焦点图。
     ·JS基本特效：常见特效、例如：tab、导航、整页滚动、轮播图、JS制作幻灯片、弹出层、手风琴菜单、瀑布流布局、滚动事件、滚差视图。
     ·JS高级特征：正则表达式、排序算法、递归算法、闭包、函数节流、作用域链、基于距离运动框架、面向对象基础。
-    ·JQuery基础使用：悬着器、DOM操作、特效和动画、方法链、拖拽、变形、JQueryUI组件基本使用。
+    ·JQuery基础使用：选择器、DOM操作、特效和动画、方法链、拖拽、变形、JQueryUI组件基本使用。
     
 2.第二阶段：HTML5和移动Web开发
     
@@ -50,7 +50,7 @@
 
     ·框架封装基础：事件流、冒泡、捕获、事件对象、事件框架、选择框架。
     ·框架封装中级：运动原理、单物体运动框架、多物体运动框架、运动框架面向对象封装。
-    ·框架封装高级和补充：JQuery框架雏形、可扩展性、模块化、封装属于传智自己的框架。
+    ·框架封装高级和补充：JQuery框架雏形、可扩展性、模块化、封装属于专属自己的框架。
     
 6.第六阶段：模块化组件开发
 
@@ -60,8 +60,8 @@
 7.第七阶段：主流的流行框架
 
     ·Web开发工作流：GIT/SVN、Yeoman脚手架、NPM/Bower依赖管理工具、Grunt/Gulp/Webpack。
-    ·MVC/MVVM/MVW框架：Angular.js、Backbone.js、Knockout/Ember。
-    ·常用库：React.js、Vue.js、Zepto.js。
+    ·MVC/MVVM/MVW框架：Angular.js、Backbone.js、Knockout/Ember、React.js、Vue.js。
+    ·常用库：JQuery、Zepto.js。
     
 8.第八阶段：HTML5原生移动应用开发
 
