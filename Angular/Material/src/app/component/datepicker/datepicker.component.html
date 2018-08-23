@@ -1,0 +1,24 @@
+<mat-form-field>
+  <input type="text" name="birthday" matInput placeholder="生日" [matDatepicker]="birthdayPicker"
+         [min]="minDate" [max]="maxDate"
+         (dateInput)="logDateInput($event)"
+         (dateChange)="logDateChange($event)"/>
+  <mat-datepicker-toggle [for]="birthdayPicker" matSuffix></mat-datepicker-toggle>
+  <mat-datepicker #birthdayPicker [startAt]="startDate"></mat-datepicker>
+</mat-form-field>
+<button mat-raised-button (click)="demoPicker.opened = true">打开Date Picker</button>
+<mat-form-field>
+  <input type="text" name="demo" matInput placeholder="例子" [matDatepicker]="demoPicker"
+         [matDatepickerFilter]="familyDayFilter"/>
+  <mat-datepicker-toggle [for]="demoPicker" matSuffix></mat-datepicker-toggle>
+  <mat-datepicker #demoPicker startView="year" touchUi="true"></mat-datepicker>
+</mat-form-field>
+
+<form [formGroup]="surveyForm">
+  <mat-form-field>
+    <input type="text" name="demo2" matInput placeholder="例子2" [matDatepicker]="demoPicker2"
+           formControlName="demo2"/>
+    <mat-datepicker-toggle [for]="demoPicker2" matSuffix disabled="true"></mat-datepicker-toggle>
+    <mat-datepicker #demoPicker2></mat-datepicker>
+  </mat-form-field>
+</form>

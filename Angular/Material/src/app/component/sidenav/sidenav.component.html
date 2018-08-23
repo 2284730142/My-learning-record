@@ -1,0 +1,49 @@
+<mat-toolbar>我是Toolbar</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #leftSideNav
+               (opened)="opened($event)"
+               (closed)="closed($event)"
+               [mode]="'over'"
+               [opened]="true"
+               [position]="'start'"
+               disableClose
+               fixedInViewport="true"
+               fixedTopGap="20"
+               fixedBottomGap="20">
+    左边菜单
+    <h2>mode:over,push,side</h2>
+    <h2>disableClose：会让出现的黑色背景无法关闭侧边栏</h2>
+    <h2>fixedInViewport：使得侧边栏可以遮挡mat-toolbar</h2>
+    <h2>fixedTopGap：侧边栏上边距</h2>
+    <h2>fixedTopGap：侧边栏下边距</h2>
+    <button mat-button (click)="toggleSideNav(leftSideNav)" color="accent">切换按钮</button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <button mat-button (click)="toggleSideNav(leftSideNav)">左边切换按钮</button>
+    <router-outlet>
+      <h2>mat-sidenav-container:侧边栏容器</h2>
+
+      <h2>mat-sidenav:侧边栏主要容</h2>
+
+      <h2>mat-sidenav-content:主体内容</h2>
+    </router-outlet>
+    <button mat-button (click)="toggleSideNav(rigintSideNav)">右边切换按钮</button>
+
+
+    <mat-drawer-container style="height:100px;border: 1px solid black">
+      <mat-drawer mode="side" opened="true">Drawer Side</mat-drawer>
+      <mat-drawer-content>Content</mat-drawer-content>
+      <h2>Drawer提供放在content里面小范围区域使用，不支持fixedInViewport</h2>
+    </mat-drawer-container>
+  </mat-sidenav-content>
+
+  <mat-sidenav #rigintSideNav
+               [opened]="false"
+               [mode]="'side'"
+               [position]="'end'">
+    <div>右边菜单</div>
+  </mat-sidenav>
+</mat-sidenav-container>
+
+

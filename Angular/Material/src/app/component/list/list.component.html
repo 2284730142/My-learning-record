@@ -1,0 +1,59 @@
+<mat-list>
+  <mat-list-item>1</mat-list-item>
+  <mat-list-item>2</mat-list-item>
+  <mat-list-item>3</mat-list-item>
+</mat-list>
+
+<mat-nav-list>
+  <h3 matSubheader>第一列</h3>
+  <a [routerLink]="'/component'" mat-list-item>1</a>
+  <a [routerLink]="'/component'" mat-list-item>2</a>
+  <a [routerLink]="'/component'" mat-list-item>3</a>
+  <!-- 另外一组 -->
+  <h3 matSubheader>阻断项</h3>
+  <a [routerLink]="['/']" mat-list-item>首頁</a>
+  <a [routerLink]="['/']" mat-list-item>Google</a>
+  <a [routerLink]="['/']" mat-list-item>Facebook</a>
+</mat-nav-list>
+
+<mat-nav-list>
+  <h3 matSubheader>多行文字</h3>
+  <mat-list-item>
+    <p matLine>床前明月光</p>
+    <p matLine>疑是地上霜</p>
+  </mat-list-item>
+  <mat-list-item>
+    <p matLine>举头望明月</p>
+    <p matLine>低头思故乡</p>
+  </mat-list-item>
+</mat-nav-list>
+
+<h3 matSubheader>好友訊息</h3>
+<mat-list-item>
+  <img matListAvatar [src]="'./assets/images/822111457835863749.jpg'"/>
+  <p matLine>显示头像</p>
+  <p matLine>第二行文本</p>
+  <!-- button会被推到最后面 -->
+  <button mat-icon-button>
+    <mat-icon>chat</mat-icon>
+  </button>
+</mat-list-item>
+
+<mat-nav-list>
+  <h3 matSubheader>
+    <mat-icon>chat_bubble</mat-icon>
+    新訊息
+  </h3>
+  <mat-list-item *ngIf="optNew.selected">這是新消息</mat-list-item>
+  <mat-list-item *ngIf="optAds.selected">這是广告消息</mat-list-item>
+
+  <mat-divider></mat-divider>
+  <h3 matSubheader>
+    <mat-icon>settings</mat-icon>
+    消息設定
+  </h3>
+  <mat-selection-list>
+    <mat-list-option [value]="1" selected="true" #optNew>有新消息時通知我</mat-list-option>
+    <mat-list-option [value]="2" #optAds>显示广告</mat-list-option>
+  </mat-selection-list>
+</mat-nav-list>

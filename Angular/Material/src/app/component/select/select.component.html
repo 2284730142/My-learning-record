@@ -1,0 +1,41 @@
+<form [formGroup]="surveyForm">
+  <mat-form-field>
+    <mat-select formControlName="interest" placeholder="选择兴趣" panelClass="blue-dropdown">
+      <mat-option *ngFor="let item of interestList" [value]="item.id">{{ item.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<form [formGroup]="surveyForm">
+  <mat-form-field>
+    <mat-select formControlName="interest" placeholder="选择兴趣" disabled>
+      <mat-option *ngFor="let item of interestList" [value]="item.id">{{ item.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<form [formGroup]="surveyForm">
+  <mat-form-field>
+    <mat-select formControlName="interest" placeholder="选择兴趣">
+      <mat-option [value]="undefined">无</mat-option>
+      <mat-option *ngFor="let item of interestList;let i=index"
+                  [value]="item.id"
+                  [disabled]="i===1">{{ item.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<form [formGroup]="surveyForm">
+  <mat-form-field>
+    <mat-select formControlName="interest" #selectInterest placeholder="选择兴趣" multiple disableRipple>
+      <mat-select-trigger>
+        共選擇了 {{ selectInterest.selected.length }} 項興趣
+      </mat-select-trigger>
+      <mat-option [value]="undefined">无</mat-option>
+      <mat-optgroup *ngFor="let parent of nestInterestList;let i=index" [label]="parent.name" [disabled]="i===1">
+        <mat-option *ngFor="let child of parent.subItems" [value]="child.id">{{ child.name }}</mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+</form>

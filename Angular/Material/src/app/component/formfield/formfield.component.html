@@ -1,0 +1,24 @@
+<mat-form-field floatLabel="always" [hideRequiredMarker]="true">
+  <input type="text" name="name" matInput placeholder="姓名" required>
+</mat-form-field>
+<form [formGroup]="surveyForm">
+  <mat-form-field floatLabel="auto" [hideRequiredMarker]="true" hintLabel="最多输入5个字">
+    <input type="text" name="name" matInput required formControlName="name" maxlength="5">
+    <mat-placeholder>
+      <mat-icon>person</mat-icon>
+      请输入姓名
+    </mat-placeholder>
+    <mat-hint align="end">
+      已输入： {{ surveyForm.get('name')?.value?.length || 0 }} / 5
+    </mat-hint>
+  </mat-form-field>
+</form>
+<mat-form-field floatLabel="never">
+  <input type="text" name="nickname" matInput placeholder="昵称"/>
+</mat-form-field>
+
+<mat-form-field>
+  <input type="number" matInput placeholder="每日消费" min="0">
+  <mat-icon matPrefix>attach_money</mat-icon>
+  <span matSuffix>RMB</span>
+</mat-form-field>

@@ -1,0 +1,58 @@
+<form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field>
+      <input type="text" name="nickname" matInput placeholder="昵称"/>
+    </mat-form-field>
+  </div>
+  <div formGroupName="basicQuestions">
+    <mat-form-field>
+      <textarea name="intro" matInput placeholder="简介" required formControlName="intro"
+                [errorStateMatcher]="earlyErrorStateMacher" matTextareaAutosize></textarea>
+      <mat-hint>简单介绍一下自己吧！</mat-hint>
+      <mat-error *ngIf="surveyForm.get('basicQuestions').get('intro').hasError('required')">此项内容不可为空哦！</mat-error>
+      <mat-error *ngIf="surveyForm.get('basicQuestions').get('intro').hasError('minlength')">至少需要十个字！</mat-error>
+    </mat-form-field>
+  </div>
+
+  <!--<input type="text" name="nickname" matInput placeholder="昵称"/>-->
+
+  <div>
+    <mat-form-field>
+      <input type="date" name="birthday" matInput placeholder="生日"/>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input type="text" name="country" matInput placeholder="国家" formControlName="country" required
+             [matAutocomplete]="countries"/>
+    </mat-form-field>
+
+    <!--displayWith:显示更多的内容-->
+    <mat-autocomplete #countries="matAutocomplete" [displayWith]="displayCountry">
+      <mat-option *ngFor="let country of countries$" [value]="country">
+        <span [innerHTML]="highlightFiltered(country.name)"></span>
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+
+
+  <div>
+    <mat-form-field>
+      <input type="text" name="majorTech" matInput placeholder="代表技术" formControlName="majorTech"
+             [matAutocomplete]="majorTechs"/>
+    </mat-form-field>
+
+    <mat-autocomplete #majorTechs="matAutocomplete">
+      <mat-optgroup *ngFor="let techList of majorTechList" [label]="techList.name">
+        <mat-option *ngFor="let tech of techList.items" [value]="tech">
+          {{ tech }}
+        </mat-option>
+      </mat-optgroup>
+    </mat-autocomplete>
+  </div>
+
+  <div>
+    <button mat-button type="submit" [disabled]="surveyForm.invalid">提交</button>
+  </div>
+</form>

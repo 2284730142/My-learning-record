@@ -1,0 +1,13 @@
+.post-tile {
+  align-self: flex-start;
+  width: 80%;
+  margin: 5px;
+}
+
+.post-tile .mat-card-image {
+  /*max-height: 300px;*/
+}
+
+mat-card:focus {
+  background: lightblue;
+}

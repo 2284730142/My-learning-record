@@ -1,0 +1,27 @@
+<mat-toolbar color="primary" class="demo-app-header">
+  <button mat-icon-button (click)="sideNav.toggle()">
+    <mat-icon>{{ sideNav.opened ? 'close' : 'menu' }}</mat-icon>
+  </button>
+  <span>Angular Material Demo</span>
+  <!-- Flex排列方式 -->
+  <span class="toolbar-seprator"></span>
+
+  <button mat-icon-button>
+    <mat-icon>message</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="demo-app-container">
+  <mat-sidenav class="demo-app-sidenav" #sideNav>
+    <button mat-button (click)="sideNav.toggle()">关闭窗口</button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">這是primary的toolbar</mat-toolbar>
+    <mat-toolbar color="accent">這是accent的toolbar</mat-toolbar>
+    <mat-toolbar color="warn">這是warn的toolbar</mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

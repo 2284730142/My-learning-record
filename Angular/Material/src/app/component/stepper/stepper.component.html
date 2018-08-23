@@ -1,0 +1,75 @@
+<mat-horizontal-stepper>
+  <mat-step label="第一步">
+    <h4>填写信息</h4>
+  </mat-step>
+  <mat-step label="第二步">
+    <h4>填写别的信息</h4>
+  </mat-step>
+  <mat-step label="第三步">
+    <h4>结束信息</h4>
+  </mat-step>
+</mat-horizontal-stepper>
+
+<hr>
+
+<button mat-button (click)="isLinear=!isLinear">切换Linear状态</button>
+
+<mat-vertical-stepper [linear]="isLinear">
+  <mat-step [stepControl]="basicFormGroup">
+    <form [formGroup]="basicFormGroup">
+      <ng-template matStepLabel>
+        <u>填写信息</u>
+      </ng-template>
+      <h4>个人信息</h4>
+      <mat-form-field>
+        <input name="name" matInput placeholder="姓名" formControlName="name" required>
+      </mat-form-field>
+    </form>
+    <button mat-button matStepperNext color="primary">下一步</button>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>
+      <em>第二步</em>
+    </ng-template>
+    <h4>填写别的信息</h4>
+    <button mat-button matStepperPrevious color="accent">上一步</button>
+    <button mat-button matStepperNext color="warn">下一步</button>
+  </mat-step>
+  <mat-step label="第三步">
+    <h4>结束信息</h4>
+    <button mat-button matStepperPrevious>上一步</button>
+  </mat-step>
+</mat-vertical-stepper>
+
+<br>
+
+<form [formGroup]="surveyForm">
+  <mat-vertical-stepper [linear]="isLinear">
+    <mat-step formGroupName="basicQuestions" [stepControl]="surveyForm.get('basicQuestions')" optional>
+      <ng-template matStepLabel>
+        <u>填写信息</u>
+      </ng-template>
+      <h4>个人信息</h4>
+      <mat-form-field>
+        <input name="name" matInput placeholder="姓名" formControlName="name" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>下一步</button>
+      </div>
+    </mat-step>
+    <!-- 這個step無法被切回來 -->
+    <mat-step editable="false">
+      <ng-template matStepLabel>
+        <em>詳細問題</em>
+      </ng-template>
+      <h4>主要的問題內容</h4>
+      <button mat-button matStepperPrevious>回到「個人資訊」</button>
+      <button mat-button matStepperNext>前進到「其他」</button>
+    </mat-step>
+    <mat-step label="其他">
+      <h4>其他問題</h4>
+      <button mat-button matStepperPrevious>回到「詳細問題」</button>
+    </mat-step>
+  </mat-vertical-stepper>
+</form>
+

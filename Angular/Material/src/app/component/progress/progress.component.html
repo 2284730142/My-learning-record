@@ -1,0 +1,74 @@
+<h4>Progress Spinner</h4>
+<h4>Determinate Progress Spinner</h4>
+<mat-progress-spinner [value]="progress"></mat-progress-spinner>
+<button mat-raised-button (click)="progress = progress - 10">-10</button>
+<button mat-raised-button (click)="progress = progress + 10">+10</button>
+
+<h4>Indeterminate Progress Spinner</h4>
+<mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+
+<h4>Spinner Stroke Width</h4>
+<mat-progress-spinner value="60" [strokeWidth]="strokeWidth"></mat-progress-spinner>
+<button mat-raised-button (click)="strokeWidth = strokeWidth - 1">-1</button>
+{{ strokeWidth }}
+<button mat-raised-button (click)="strokeWidth = strokeWidth + 1">+1</button>
+
+<h4>Spinner Stroke Width</h4>
+<mat-progress-spinner value="60" [diameter]="diameter"></mat-progress-spinner>
+<button mat-raised-button (click)="diameter = diameter - 10">-10</button>
+{{ diameter }}
+<button mat-raised-button (click)="diameter = diameter + 10">+10</button>
+
+<h4>Very Small Spinner</h4>
+<mat-spinner [strokeWidth]="1" [diameter]="30"></mat-spinner>
+
+<!--rowHeight="4:1"-->
+<mat-grid-list cols="3" rowHeight="200px" gutterSize="0">
+  <mat-grid-tile colspan="2">
+    Tile 1
+  </mat-grid-tile>
+  <mat-grid-tile rowspan="5">
+    <mat-grid-tile-header>
+      <h3 mat-line>头部</h3>
+      <span mat-line>其他</span>
+      <mat-icon>list</mat-icon>
+    </mat-grid-tile-header>
+
+    <div class="blog-sidebard-content">
+      <h4>
+        發文進度
+      </h4>
+      <h4>Determinate Progress Bar</h4>
+      <mat-progress-bar [value]="progress" mode="determinate"></mat-progress-bar>
+      <button mat-raised-button (click)="progress = progress - 10">-10</button>
+      <button mat-raised-button (click)="progress = progress + 10">+10</button>
+      <h4>Buffer Progress Bar</h4>
+      <mat-progress-bar mode="buffer" value="30" bufferValue="60"></mat-progress-bar>
+      <h4>Indeterminate Progress Bar</h4>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      <h4>Query Progress Bar</h4>
+      <mat-progress-bar mode="query"></mat-progress-bar>
+
+      <h4>Primary</h4>
+      <mat-progress-bar mode="buffer" color="primary"></mat-progress-bar>
+
+      <h4>Accent</h4>
+      <mat-progress-bar mode="buffer" color="accent"></mat-progress-bar>
+
+      <h4>Warn</h4>
+      <mat-progress-bar mode="buffer" color="warn"></mat-progress-bar>
+    </div>
+
+    <mat-grid-tile-footer>
+      <span mat-line>底部</span>
+      <mat-icon>thumb_up</mat-icon>
+    </mat-grid-tile-footer>
+    Tile 2(右邊清單資訊)
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="3">
+    Tile 3
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2">
+    Tile 4
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,71 @@
+<mat-menu #messageMenu="matMenu" [overlapTrigger]="false">
+  <button mat-menu-item>第一条</button>
+  <button mat-menu-item>第二条</button>
+</mat-menu>
+
+<button mat-icon-button [matMenuTriggerFor]="messageMenu" #menuTrigger="matMenuTrigger">
+  <mat-icon>信息</mat-icon>
+</button>
+
+<h2>overlapTrigger:用于让菜单不会遮挡按钮</h2>
+<br>
+<button mat-raised-button (click)="menuTrigger.toggleMenu()">触发信息</button>
+
+
+<br>
+
+
+<div style="text-align:center">
+  <button mat-raised-button [matMenuTriggerFor]="positionMenu">这是一条非常长的按钮，用来确认出现的菜单的位置</button>
+  <mat-menu #positionMenu="matMenu" xPosition="before" yPosition="above">
+    <button mat-menu-item>信息1</button>
+    <button mat-menu-item>信息2</button>
+    <button mat-menu-item>信息3</button>
+    <button mat-menu-item>信息4</button>
+    <button mat-menu-item>信息5</button>
+    <button mat-menu-item>信息6</button>
+  </mat-menu>
+</div>
+
+<h2>xPosition,yPosition：调整出现的位置</h2>
+
+<br>
+
+<h2>二级菜单</h2>
+<button mat-raised-button [matMenuTriggerFor]="positionMenu">二级菜单按钮</button>
+<mat-menu #positionMenu="matMenu">
+  <mat-divider></mat-divider>
+  <button mat-menu-item [matMenuTriggerFor]="subMenu1">菜单1</button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item [matMenuTriggerFor]="subMenu2">菜单2</button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>菜单3</button>
+  <mat-divider></mat-divider>
+</mat-menu>
+
+
+<mat-menu #subMenu1="matMenu">
+  <button mat-menu-item>
+    <mat-icon>person</mat-icon>
+    菜单 1-1
+  </button>
+  <button mat-menu-item>
+    <mat-icon>favorite</mat-icon>
+    菜单 1-2
+  </button>
+  <button mat-menu-item>
+    <mat-icon>thumb_up</mat-icon>
+    菜单 1-3
+  </button>
+</mat-menu>
+
+<mat-menu #subMenu2="matMenu">
+  <button mat-menu-item>
+    <mat-icon>delete</mat-icon>
+    菜单 2-1
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>settings</mat-icon>
+    菜单 2-2
+  </button>
+</mat-menu>
