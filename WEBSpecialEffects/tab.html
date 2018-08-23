@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .tab {
+            width: 400px;
+            height: 500px;
+            border: 1px solid gray;
+            position: relative;
+        }
+
+        .tab-list {
+            display: block;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .tab-list > li {
+            float: left;
+            width: 33.33%;
+            height: 100%;
+            text-align: center;
+        }
+
+        .tab-list > li.active {
+            background: #ffee00;
+        }
+
+        .tab-list::after {
+            content: "";
+            clear: both;
+        }
+
+        .tab-content {
+            display: block;
+            position: absolute;
+            top: 30px;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .tab-content > li {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .tab-content > li:nth-child(1) {
+            background: #7C2845;
+        }
+
+        .tab-content > li:nth-child(2) {
+            background: #EB97B4;
+            display: none;
+        }
+
+        .tab-content > li:nth-child(3) {
+            background: #EEEEEE;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="tab">
+    <ul class="tab-list">
+        <li class="active">第一页</li>
+        <li>第二页</li>
+        <li>第三页</li>
+    </ul>
+    <ul class="tab-content">
+        <li>这是第一页</li>
+        <li>这是第二页</li>
+        <li>这是第三页</li>
+    </ul>
+</div>
+<script>
+    window.onload = function (e) {
+        var listItem = document.querySelectorAll('.tab-list>li');
+        var contentItem = document.querySelectorAll('.tab-content>li');
+        for (var i = 0; i < listItem.length; i++) {
+            listItem[i].index = i;
+            listItem[i].onmouseover = function (e) {
+                for (var j = 0; j < listItem.length; j++) {
+                    listItem[j].className = '';
+                    contentItem[j].style.display = 'none';
+                }
+                this.className = 'active';
+                contentItem[this.index].style.display = 'block';
+            };
+        }
+    }
+</script>
+</body>
+</html>
